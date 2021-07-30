@@ -207,7 +207,7 @@
     <div class="container">
         <div class="row row-content">
             <div class="col">
-                <div id="mycarousel" class="carousel slide" data-bs-ride="carousel">
+                <div id="mycarousel" class="carousel slide " data-bs-ride="carousel">
                     <div class="carousel-inner"   >
                         <div class="carousel-item active " >
                             <img class="d-block img-fluid" src="img/uthappizza.png" alt="uthappizza">
@@ -252,20 +252,18 @@
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                            
                         </button>  
-                        
-                        <div class="btn-group" id="carouselButton">
-                            <button class="btn btn-danger btn-sm" id="carousel-pause" data-bs-interval="false" data-bs-pause="hover">
-                                <span class="fa fa-pause"></span>
+                        <div  id="carouselButton">
+                            <button class="btn btn-danger btn-sm " id="carouselButton" >
+                                <i class="fa fa-pause"></i>
                             </button>
-                            <button class="btn btn-danger btn-sm" id="carousel-play" >
-                                <span class="fa fa-play"></span>
-                            </button>
+                          
                         </div>    
+                       
 
                     </div>
                     
                 </div>
-                
+
             </div>
 
         </div>
@@ -453,30 +451,56 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script>
+
         var carouselElement = document.getElementById("mycarousel");
         var carousel = new bootstrap.Carousel(carouselElement, {
-        interval: 2000
+  	    interval: 500
         });
 
-        document.getElementById("carousel-pause").addEventListener("click", function() {
+        /*var carouselButton= document.getElementById("carouselButton");
+          carouselButton.addEventListener("click", function() {                             
+                carousel.pause();                                                    
+              console.log(carousel);                                           
+            }); */
 
-            carousel.pause();
-            console.log(carousel);
+            var playing = true;
+            var Button = document.getElementById('carouselButton');
+            const icon=Button.querySelector('i');
+           
 
-            // carousel('pause'); // doesn't work
-            // carousel.carousel('pause'); // doesn't work
-            });
+            function pauseSlideshow(){
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play')
+            //Button.innerHTML = 'Play';
+	        playing = false;
+	        carousel.pause();
+            }
 
-            document.getElementById("carousel-play").addEventListener("click", function() {
-
+            function playSlideshow(){
+            icon.classList.remove('fa-play');
+            icon.classList.add('fa-pause')
+	        //Button.innerHTML = 'Pause';
+	        playing = true;
             carousel.cycle();
-            console.log(carousel);
-            });
+            }
+
+            Button.onclick = function(){
+	        if(playing){ pauseSlideshow(); }
+	        else{ playSlideshow(); }
+            };
+
+
+
+     
+	       
+
+          
 
 
     </script>
    
-    
+  
+   
 </body>
 
 </html>
