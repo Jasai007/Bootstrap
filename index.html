@@ -37,8 +37,8 @@
                
                 <span class="navbar-text">
                     
-                    <a href="#loginModal" data-bs-toggle="modal" data-bs-target="#loginModal">
-                        <span class="fa fa-sign-in"></span> Login
+                    <a id="loginBtn" >
+                         <span class="fa fa-sign-in"></span>Login
                     </a>
                 </span>
             </div>
@@ -52,7 +52,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Login</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <button type="button" class="btn-close" id="loginClose"></button>
 
                 </div>
                 <div class="modal-body">
@@ -78,7 +78,7 @@
                         <div>
                             <button type="submit" class="btn btn-primary ms-2 pull-right">Sign-in</button>
                             <button type="button" class="btn btn-secondary pull-right"
-                             data-bs-dismiss="modal">Cancel</button>
+                             id="loginCancel">Cancel</button>
                              
                         </div>
 
@@ -108,7 +108,7 @@
                 <div class="col-12 col-sm-3  ">
                     <a href="#reserveModal">
                         <button type="button" class="btn btn-warning btn-lg" style="height:50px;width:300px" 
-                            data-bs-toggle="modal" data-bs-target="#reserveModal">Reserve
+                            id="reserveBtn">Reserve
                         </button>                                             
                     </a>
                   
@@ -126,7 +126,7 @@
                 <div class="modal-content" style="color:black" >
                     <div class="modal-header">
                         <h4 class="modal-title" id="reserveModal" >Reserve a Table</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        <button type="button" class="btn-close" id="reserveClose"></button>
     
                     </div>
                     <div class="modal-body">
@@ -186,7 +186,7 @@
                                 
                                 <div class="offset-sm-2">
                                     <button type="button" class="btn btn-secondary"
-                             data-bs-dismiss="modal">Cancel</button>
+                             id="reserveCancel">Cancel</button>
                                     <button type="submit" class="btn btn-primary">Reserve</button>                          
                                 </div>
                             </div>
@@ -340,64 +340,6 @@
             </div>
         </div>
 
-        <div class="row align-items-center">
-            <div class="col-12 offset-sm-2 col-sm-8 mb-5">
-                <div class="card" id="reserve">
-                    <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
-                    <div class="card-body">
-                        <form>
-                            <div class="mb-4">
-                                <label for="guests" class="col-sm-2 col-form-label ">Number of Guests: </label>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">1</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">2</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                                    <label class="form-check-label" for="inlineRadio3">3</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-                                    <label class="form-check-label" for="inlineRadio4">4</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
-                                    <label class="form-check-label" for="inlineRadio5">5</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
-                                    <label class="form-check-label" for="inlineRadio6">6</label>
-                                  </div>
-                            </div>
-
-                            <div class="mb-4 row">
-                                <label for="DateTime" class="col-sm-2 col-form-label">Date and Time: </label>
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" id="date" name="date" placeholder="Date" >
-                                   
-                                </div>
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" id="time" name="time" placeholder="Time" >
-                                </div>                                
-                            </div>
-
-                            <div class="mb-4 row">
-                                <div class="offset-sm-2">
-                                    <button type="submit" class="btn btn-primary">Reserve</button>                          
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-
-                </div>
-            </div>
-
-        </div>
 
 
     </div>
@@ -454,7 +396,7 @@
 
         var carouselElement = document.getElementById("mycarousel");
         var carousel = new bootstrap.Carousel(carouselElement, {
-  	    interval: 500
+  	    interval: 2000
         });
 
         /*var carouselButton= document.getElementById("carouselButton");
@@ -489,9 +431,40 @@
 	        else{ playSlideshow(); }
             };
 
+            
+            
+            $(document).ready(function(){
+                $("#loginBtn").click(function(){
+                $("#loginModal").modal("toggle");
+                }); 
+               
+                $("#loginClose").click(function(){
+                $("#loginModal").modal("hide");
+                });
+
+                $("#loginCancel").click(function(){
+                $("#loginModal").modal("hide");
+                });
+
+                $("#reserveBtn").click(function(){
+                $("#reserveModal").modal("toggle");
+                });
+
+                $("#reserveClose").click(function(){
+                $("#reserveModal").modal("hide");
+                });
+
+                $("#reserveCancel").click(function(){
+                $("#reserveModal").modal("hide");
+                });
 
 
-     
+
+            });
+
+
+
+            
 	       
 
           
