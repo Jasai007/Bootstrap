@@ -3,29 +3,25 @@ var carouselElement = document.getElementById("mycarousel");
   	    interval: 2000
         });
 
-        /*var carouselButton= document.getElementById("carouselButton");
-          carouselButton.addEventListener("click", function() {                             
-                carousel.pause();                                                    
-              console.log(carousel);                                           
-            }); */
+      
 
             var playing = true;
             var Button = document.getElementById('carouselButton');
-            const icon=Button.querySelector('i');
+            var icon=Button.querySelector('i');
            
 
             function pauseSlideshow(){
             icon.classList.remove('fa-pause');
-            icon.classList.add('fa-play')
-            //Button.innerHTML = 'Play';
+            icon.classList.add('fa-play');
+         
 	        playing = false;
 	        carousel.pause();
             }
 
             function playSlideshow(){
             icon.classList.remove('fa-play');
-            icon.classList.add('fa-pause')
-	        //Button.innerHTML = 'Pause';
+            icon.classList.add('fa-pause');
+	       
 	        playing = true;
             carousel.cycle();
             }
@@ -35,9 +31,55 @@ var carouselElement = document.getElementById("mycarousel");
 	        else{ playSlideshow(); }
             };
 
+      //Login Modal      
+            var loginBtn=document.getElementById('loginBtn');
+            var loginClose=document.getElementById('loginClose');
+            var loginCancel=document.getElementById('loginCancel');       
+            var loginModal=new bootstrap.Modal(document.getElementById('loginModal'), {
+                keyboard: false
+              });
+
+            loginBtn.addEventListener("click", openlogin);
+            loginClose.addEventListener("click", closelogin);
+            loginCancel.addEventListener("click", closelogin);
+
+            function openlogin()
+            {
+                loginModal.toggle();
+            }
+            function closelogin()
+            {
+                loginModal.hide();
+            }
+
+        //Reserve Modal
+
+        var reserveBtn=document.getElementById('reserveBtn');
+        var reserveClose=document.getElementById('reserveClose');
+        var reserveCancel=document.getElementById('reserveCancel');
+        var reserveModal=new bootstrap.Modal(document.getElementById('reserveModal'), {
+            keyboard: false
+          });
+
+        reserveBtn.addEventListener("click", openreserve);
+        reserveClose.addEventListener("click", closereserve);
+        reserveCancel.addEventListener("click", closereserve);
+
+        function openreserve()
+        {
+            reserveModal.toggle();
+        }
+        function closereserve()
+        {
+            reserveModal.hide();
+        }
+
+
+
+
+
             
-            
-            $(document).ready(function(){
+           /* $(document).ready(function(){
                 $("#loginBtn").click(function(){
                 $("#loginModal").modal("toggle");
                 }); 
@@ -62,3 +104,4 @@ var carouselElement = document.getElementById("mycarousel");
                 $("#reserveModal").modal("hide");
                 });
             });
+            */
