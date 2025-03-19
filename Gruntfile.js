@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = function (grunt) {
-    const sass = require('node-sass');
+    const sass = require('sass'); // Updated to use 'sass' instead of 'node-sass'
+
 
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
@@ -16,7 +17,8 @@ module.exports = function (grunt) {
   grunt.initConfig({
     sass: {
         options: {
-            implementation: sass,
+            implementation: sass, // Ensure compatibility with the latest version
+
             sourceMap: true
         },
         dist: {
@@ -204,4 +206,3 @@ module.exports = function (grunt) {
 ]);
 
 };
-

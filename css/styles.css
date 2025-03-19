@@ -11,13 +11,19 @@
 .footer {
   background-color: #D1C4E9;
   margin: 0px auto;
-  padding: 20px 0px; }
+  padding: 20px 0px;
+  color: #000; /* Improved text color for readability */
+}
+
 
 .jumbotron {
   margin: 0px auto;
   padding: 70px 30px;
   background: #9575CD;
-  color: floralwhite; }
+  color: floralwhite;
+  text-shadow: 1px 1px 2px #000; /* Added text shadow for better readability */
+}
+
 
 address {
   font-size: 80%;
@@ -29,7 +35,10 @@ body {
   z-index: 0; }
 
 .navbar-dark {
-  background-color: #512DA8; }
+  background-color: #512DA8;
+  border-bottom: 2px solid #000; /* Added border for better separation */
+}
+
 
 .tab-content {
   border-left: 1px solid #ddd;
@@ -38,7 +47,10 @@ body {
   padding: 10px; }
 
 .carousel {
-  background: #512DA8; }
+  background: #512DA8;
+  border-radius: 10px; /* Added border radius for a smoother look */
+}
+
   .carousel .carousel-item {
     height: 300px; }
     .carousel .carousel-item img {

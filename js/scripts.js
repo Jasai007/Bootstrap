@@ -1,107 +1,24 @@
-var carouselElement = document.getElementById("mycarousel");
-        var carousel = new bootstrap.Carousel(carouselElement, {
-  	    interval: 2000
-        });
+// JavaScript for form validation
 
-      
+// Login form validation
+document.getElementById('loginModal').addEventListener('submit', function(event) {
+    const email = document.getElementById('Email').value;
+    const password = document.getElementById('Password').value;
 
-            var playing = true;
-            var Button = document.getElementById('carouselButton');
-            var icon=Button.querySelector('i');
-           
+    if (!email || !password) {
+        event.preventDefault();
+        alert('Please fill in both email and password.');
+    }
+});
 
-            function pauseSlideshow(){
-            icon.classList.remove('fa-pause');
-            icon.classList.add('fa-play');
-         
-	        playing = false;
-	        carousel.pause();
-            }
+// Reservation form validation
+document.getElementById('reserveModal').addEventListener('submit', function(event) {
+    const guests = document.querySelector('input[name="inlineRadioOptions"]:checked');
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
 
-            function playSlideshow(){
-            icon.classList.remove('fa-play');
-            icon.classList.add('fa-pause');
-	       
-	        playing = true;
-            carousel.cycle();
-            }
-
-            Button.onclick = function(){
-	        if(playing){ pauseSlideshow(); }
-	        else{ playSlideshow(); }
-            };
-
-      //Login Modal      
-            var loginBtn=document.getElementById('loginBtn');
-            var loginClose=document.getElementById('loginClose');
-            var loginCancel=document.getElementById('loginCancel');       
-            var loginModal=new bootstrap.Modal(document.getElementById('loginModal'), {
-                keyboard: false
-              });
-
-            loginBtn.addEventListener("click", openlogin);
-            loginClose.addEventListener("click", closelogin);
-            loginCancel.addEventListener("click", closelogin);
-
-            function openlogin()
-            {
-                loginModal.toggle();
-            }
-            function closelogin()
-            {
-                loginModal.hide();
-            }
-
-        //Reserve Modal
-
-        var reserveBtn=document.getElementById('reserveBtn');
-        var reserveClose=document.getElementById('reserveClose');
-        var reserveCancel=document.getElementById('reserveCancel');
-        var reserveModal=new bootstrap.Modal(document.getElementById('reserveModal'), {
-            keyboard: false
-          });
-
-        reserveBtn.addEventListener("click", openreserve);
-        reserveClose.addEventListener("click", closereserve);
-        reserveCancel.addEventListener("click", closereserve);
-
-        function openreserve()
-        {
-            reserveModal.toggle();
-        }
-        function closereserve()
-        {
-            reserveModal.hide();
-        }
-
-
-
-
-
-            
-           /* $(document).ready(function(){
-                $("#loginBtn").click(function(){
-                $("#loginModal").modal("toggle");
-                }); 
-               
-                $("#loginClose").click(function(){
-                $("#loginModal").modal("hide");
-                });
-
-                $("#loginCancel").click(function(){
-                $("#loginModal").modal("hide");
-                });
-
-                $("#reserveBtn").click(function(){
-                $("#reserveModal").modal("toggle");
-                });
-
-                $("#reserveClose").click(function(){
-                $("#reserveModal").modal("hide");
-                });
-
-                $("#reserveCancel").click(function(){
-                $("#reserveModal").modal("hide");
-                });
-            });
-            */
+    if (!guests || !date || !time) {
+        event.preventDefault();
+        alert('Please fill in all fields for reservation.');
+    }
+});
