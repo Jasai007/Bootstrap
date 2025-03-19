@@ -1,4 +1,22 @@
+document.getElementById('loginBtn').addEventListener('click', function() {
+    $('#loginModal').modal('show');
+});
+
+document.getElementById('reserveBtn').addEventListener('click', function() {
+    $('#reserveModal').modal('show');
+});
+
+document.getElementById('loginClose').addEventListener('click', function() {
+    $('#loginModal').modal('hide');
+});
+
+document.getElementById('reserveClose').addEventListener('click', function() {
+    $('#reserveModal').modal('hide');
+});
+
 // JavaScript for form validation
+
+
 
 // Login form validation
 document.getElementById('loginModal').addEventListener('submit', function(event) {
